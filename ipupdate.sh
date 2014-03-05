@@ -55,7 +55,14 @@ do
     cp $filename $filename.old
     sed "s/$currentip/$newip/g" $filename.old > $filename
     rm -f $filename.old
-    /usr/sbin/asterisk -rx "sip reload" &> /dev/null
+    if [ "$thisfile" == "sip.conf" ]
+    then
+      /usr/sbin/asterisk -rx "sip reload" &> /dev/null
+    elif [ "$thisfile" == "pjsip.conf" ]
+    then
+      /usr/sbin/asterisk -rx "module reload res_pjsip.so" &> /dev/null
+    fi
+    
   else
     if [ "$debug" == 1 ]; then echo "no change";fi
   fi
