@@ -2,9 +2,6 @@
 filename="/etc/asterisk/sip.conf"
 hostname="$1"
 
-echo "$hostname"
-echo "$filename"
-
 if [ "$2" == "silent" ]; then 
   debug=0
 else
