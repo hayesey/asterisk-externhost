@@ -13,11 +13,15 @@ This script will be simple to modify to work with pjsip.conf.
 How to use:
 
 - make sure the ipupdate.sh file has execute permissions for root
+- there are two possible arguments:
+  1) a hostname. This is required to do the DNS lookup
+  2) "silent".  If not present then the output is echoed to stdout. If it is there
+     the script is silent (for cron jobs)
 - add something similar to this to root's crontab:
 
-* * * * * /path/to/script/ipupdate.sh
+* * * * * /path/to/script/ipupdate.sh extern.hayesey.co.uk silent
 
-with your own path in there.  That will run once a minute.
+with your own path and your own hostname.  That will run once a minute.
 
 What is it for:
 
