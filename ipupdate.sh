@@ -10,12 +10,12 @@ fi
 
 currentip=$(grep externaddr $filename)
 currentip=${currentip##*=}
-if [ "$debug" == 1 ]; then echo "ip read from file - $currentip";fi
+if [ "$debug" == 1 ]; then echo "ip read from file $filename is: $currentip";fi
 
 newip=$(host $hostname)
 newip=${newip##* }
 
-if [ "$debug" == 1 ]; then echo "new ip from curl - $newip";fi
+if [ "$debug" == 1 ]; then echo "ip from hostname $hostname is: $newip";fi
 
 if [ "$newip" != "$currentip" ]; then
   if [ "$debug" == 1 ]; then echo "ips different";fi
